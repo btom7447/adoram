@@ -1,14 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Poppins, Michroma } from "next/font/google";
+import "../app/styles/globals.css";
+import "../app/styles/custom-button.css";
+import Header from "@/components/Header";
+import NavMenu from "@/components/NavMenu";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], 
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const michroma = Michroma({
+  variable: "--font-michroma",
   subsets: ["latin"],
+  weight: ["400"], // Michroma only has one weight
 });
 
 export const metadata = {
@@ -18,12 +23,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${poppins.variable} ${michroma.variable}`}>
+      <body className="font-sans antialiased">
+        <Header />
         {children}
+        <NavMenu />
       </body>
     </html>
   );
 }
+
