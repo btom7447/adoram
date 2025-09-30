@@ -1,6 +1,7 @@
 import { Poppins, Michroma } from "next/font/google";
 import "../app/styles/globals.css";
 import "../app/styles/custom-button.css";
+import "@splidejs/splide/dist/css/splide.min.css";
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
 

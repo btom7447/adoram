@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 
 import HeroSection from "@/sections/HeroSection";
 import AboutSection from "@/sections/AboutSection";
+import BrandLogoSection from "@/sections/BrandLogoSection";
+import ProjectSection from "@/sections/ProjectSection";
 
 export default function HomePage() {
   useEffect(() => {
@@ -20,6 +22,8 @@ export default function HomePage() {
     <>
       <HeroSection />
       <AboutSection />
+      <BrandLogoSection />
+      <ProjectSection />
     </>
   )
 }
