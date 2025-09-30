@@ -23,9 +23,9 @@ export default function HeroSection() {
             <div
                 className="col-span-2 flex flex-col items-center justify-center z-10"
             >
-                <div className="max-w-3xl">
+                <div className="w-full lg:min-w-xl max-w-3xl mb-15 lg:mb-0">
                     <h5 data-aos="fade-down" className="text-xl text-gray-400 font-light">Hello, <span data-aos-delay="200" className="text-white font-medium">My name </span> is</h5>
-                    <h1 data-aos="fade-left" className="michroma my-5 lg:my-20 text-left lg:text-right text-6xl lg:text-9xl font-medium text-white"><span className="text-highlight">Adoram</span> <br /> Tom</h1>
+                    <h1 data-aos="fade-left" className="michroma my-5 lg:my-15 text-left lg:text-right text-6xl lg:text-8xl font-medium text-white"><span className="text-highlight">Adoram</span> <br /> Tom</h1>
                     <h5 data-aos="fade-up" className="w-full max-w-xl h-25 justify-self-end text-right text-xl text-gray-400">
                         {startTyping && (
                             <ReactTyped

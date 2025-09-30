@@ -29,16 +29,16 @@ export default function NavMenu() {
     return (
         <nav
             className={clsx(
-                "hidden lg:flex fixed bottom-10 left-1/2 -translate-x-1/2 items-center gap-3 px-3 py-3.5 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "hidden lg:flex fixed bottom-10 z-50 left-1/2 -translate-x-1/2 items-center gap-0 px-3 py-3.5 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 "bg-gradient-to-tr from-gray-500/40 to-gray-400/30"
             )}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <ul className="michroma flex items-center gap-5 text-sm font-light text-white">
+            <ul className="michroma flex items-center gap-2 text-sm font-light text-white">
                 {/* Show menu icon only when minimized */}
                 {minimized && (
-                    <li className="ml-2 -mr-6">
+                    <li className="ml-2 ">
                         <Tally3 size={22} strokeWidth={1.5} />
                     </li>
                 )}
