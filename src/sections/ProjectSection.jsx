@@ -1,82 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-export const projects = [
-    {
-        name: "Fintech App Redesign",
-        date: "2025-01-15",
-        tags: ["UI Design", "UX Research", "Prototyping"],
-        image: "/images/projects/project-one.jpg",
-    },
-    {
-        name: "E-Commerce Branding",
-        date: "2024-12-10",
-        tags: ["Branding", "UI Design", "Illustration"],
-        image: "/images/projects/project-two.png",
-    },
-    {
-        name: "Healthcare Dashboard",
-        date: "2024-11-05",
-        tags: ["UI Design", "UX Research", "Data Visualization"],
-        image: "/images/projects/project-three.png",
-    },
-    {
-        name: "Portfolio Website",
-        date: "2024-10-22",
-        tags: ["UI Design", "Frontend Dev", "Branding"],
-        image: "/images/projects/project-four.png",
-    },
-    {
-        name: "Travel Booking Platform",
-        date: "2024-09-18",
-        tags: ["Prototyping", "UI Design", "Interaction Design"],
-        image: "/images/projects/project-one.jpg",
-    },
-    {
-        name: "Restaurant Ordering System",
-        date: "2024-08-12",
-        tags: ["UX Research", "UI Design", "Branding"],
-        image: "/images/projects/project-two.png",
-    },
-    {
-        name: "Crypto Wallet App",
-        date: "2024-07-28",
-        tags: ["UI Design", "Prototyping", "Product Design"],
-        image: "/images/projects/project-three.png",
-    },
-    {
-        name: "Fitness Tracker",
-        date: "2024-06-20",
-        tags: ["UI Design", "UX Research", "Mobile Design"],
-        image: "/images/projects/project-four.png",
-    },
-    {
-        name: "Education Platform",
-        date: "2024-05-14",
-        tags: ["UI Design", "Branding", "Accessibility"],
-        image: "/images/projects/project-one.jpg",
-    },
-    {
-        name: "Smart Home App",
-        date: "2024-04-02",
-        tags: ["UI Design", "Prototyping", "UX Research"],
-        image: "/images/projects/project-two.png",
-    },
-];
+import { MoonLoader } from "react-spinners";
+import Link from "next/link";
 
 export default function ProjectSection() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    // Fetch projects from API
+    useEffect(() => {
+        async function fetchProjects() {
+            try {
+                const res = await fetch("/api/projects");
+                const data = await res.json();
+                setProjects(data);
+            } catch (error) {
+                console.error("❌ Failed to fetch projects:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchProjects();
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="bg-black py-30 flex items-center justify-center z-50">
+                <MoonLoader color="#4254D0" size={40} />
+            </div>
+        );
+    }
+
+    if (!projects.length) {
+        return (
+            <div className="bg-black py-30 flex items-center justify-center">
+                <p className="text-gray-300 text-xl text-center">
+                    No projects available yet.
+                </p>
+            </div>
+        );
+    }
+
 
     return (
         <section
             className="relative p-5 lg:p-10 w-full h-fit flex flex-col items-center justify-center overflow-hidden"
             style={{
-                backgroundImage: `url(${projects[activeIndex].image})`,
+                backgroundImage: `url(${projects[activeIndex]?.project_images?.[0] || ""})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
@@ -111,13 +87,14 @@ export default function ProjectSection() {
             >
                 {projects.map((project, index) => (
                     <SplideSlide key={index}>
+                        <Link href={`/projects/${project._id}`} className="block w-full">
                         <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto ">
                             <h2 className="michroma text-3xl font-light text-white ">
                                 {project.name}
                             </h2>
                             <Image
-                                src={project.image}
-                                alt={project.name}
+                                src={project.project_images?.[0]}
+                                alt={project.project_name}
                                 width={180}
                                 height={100}
                                 unoptimized
@@ -134,6 +111,7 @@ export default function ProjectSection() {
                                 ))}
                             </div>
                         </div>
+                        </Link>
                     </SplideSlide>
                 ))}
             </Splide>
