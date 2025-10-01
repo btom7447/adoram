@@ -9,6 +9,7 @@ import AboutSection from "@/sections/AboutSection";
 import BrandLogoSection from "@/sections/BrandLogoSection";
 import ProjectSection from "@/sections/ProjectSection";
 import SkillsSection from "@/sections/SkillsSection";
+import ServicesSection from "@/sections/ServicesSection";
 
 export default function HomePage() {
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function HomePage() {
       <BrandLogoSection />
       <ProjectSection />
       <SkillsSection />
+      <ServicesSection />
     </>
   )
 }

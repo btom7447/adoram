@@ -18,15 +18,15 @@ export default function SkillsSection() {
 
     return (
         <section className="p-5 lg:p-10 bg-black">
-        <h5
-            className="mb-10 w-full text-center text-white text-lg font-medium"
-            data-aos="fade-down"
-        >
-            Skills
-        </h5>
+            <h5
+                className="mb-10 w-full text-center text-white text-lg font-medium"
+                data-aos="fade-down"
+            >
+                Skills
+            </h5>
 
-        <div className="w-full max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-5">
-            {skills.map((skill, i) => {
+            <div className="w-full max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-5">
+                {skills.map((skill, i) => {
                 const isHovered = hovered === i;
                     return (
                         <div
