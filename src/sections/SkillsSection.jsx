@@ -41,7 +41,7 @@ export default function SkillsSection() {
                             {/* Circular Bouncing Icon */}
                             <motion.div
                                 animate={
-                                !isHovered
+                                isHovered
                                     ? {
                                         x: [0, 20, 40, 20, 0, -20, -40, -20, 0],
                                         y: [0, -20, 0, 20, 0, 20, 0, -20, 0],
@@ -50,7 +50,7 @@ export default function SkillsSection() {
                                 }
                                 transition={{
                                     duration: 6,
-                                    repeat: isHovered ? 0 : Infinity,
+                                    repeat: isHovered ? Infinity : 0,
                                     ease: "easeInOut",
                                 }}
                                 className="absolute top-3 right-[50%] w-12 h-12"
@@ -62,8 +62,8 @@ export default function SkillsSection() {
                                     height={40}
                                     className={`transition-all duration-300 ${
                                         isHovered
-                                        ? "filter-none"
-                                        : "grayscale brightness-75 contrast-125"
+                                        ? "filter-none block"
+                                        : "hidden grayscale brightness-75 contrast-125"
                                     }`}
                                 />
                             </motion.div>

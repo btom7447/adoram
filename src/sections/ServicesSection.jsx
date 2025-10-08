@@ -64,7 +64,7 @@ export default function ServicesSection() {
                 })}
             </div>
             <div className="flex flex-col lg:flex-row items-end justify-end">
-                <div className="flex gap-5">
+                <div className="flex flex-wrap gap-5">
                     <CustomButton variant="white" href={"/services"}>See More</CustomButton>
                     <CustomButton variant="black" href={"/projects"}>Book an Appointment</CustomButton>
                 </div>
