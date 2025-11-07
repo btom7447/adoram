@@ -42,7 +42,7 @@ export default function ContactForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10"
+      className="px-0 lg:px-20 xl:px-30 w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-20"
       data-aos="zoom-in-up"
       data-aos-delay="200"
     >
