@@ -97,7 +97,7 @@ export default function ComingSoon() {
           </h1>
 
           <Link
-            href="/notify"
+            href="/coming-soon/notify"
             data-aos="fade-up"
             className="mt-4 px-10 py-3 bg-white text-gray-900 rounded-full hover:bg-gray-200 transition font-medium"
           >
