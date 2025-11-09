@@ -27,7 +27,7 @@ export default function ComingSoon() {
   }, []);
 
   return (
-    <section className="fixed top-0 left-0 h-screen w-screen z-[5000] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+    <section className="pt-20 fixed top-0 left-0 h-screen w-screen z-[5000] flex flex-col items-center justify-center text-center text-white overflow-hidden">
       {/* Background Image */}
       <Image
         src="/coming-soon.png"
@@ -39,11 +39,11 @@ export default function ComingSoon() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+      <div className="absolute inset-0 bg-black/00 backdrop-blur-[1px]" />
 
       {/* Header */}
       <header className="absolute top-5 left-0 w-full flex items-center justify-between px-10">
-        <span className="allison text-sm lg:text-3xl text-white">
+        <span className="allison text-sm lg:text-3xl text-black">
           Adoram Tom
         </span>
         <ul className="flex gap-5 text-lg font-light">
@@ -54,13 +54,13 @@ export default function ComingSoon() {
             <li key={label}>
               <button
                 onClick={() => router.push(href)}
-                className={`relative text-sm lg:text-xl pb-1 transition-colors duration-300 cursor-pointer
+                className={`relative text-sm michroma lg:text-xl pb-1 transition-colors duration-300 cursor-pointer
             ${
               pathname === href
-                ? "text-white after:w-full"
-                : "text-gray-300 hover:text-white after:w-0 hover:after:w-full"
+                ? "text-highlight after:w-full"
+                : "text-black hover:text-black after:w-0 hover:after:w-full"
             }
-            after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-white 
+            after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-highlight 
             after:transition-[width] after:duration-500`}
               >
                 {label}
@@ -76,7 +76,7 @@ export default function ComingSoon() {
         <div className="flex flex-col items-center justify-center mt-24">
           <h5
             data-aos="fade-down"
-            className="w-full max-w-xl text-right text-sm lg:text-xl text-white"
+            className="w-full max-w-xl text-right text-sm lg:text-xl text-black"
           >
             {startTyping && (
               <ReactTyped
@@ -91,7 +91,7 @@ export default function ComingSoon() {
 
           <h1
             data-aos="fade-down"
-            className="michroma my-5 text-center text-7xl lg:text-9xl font-light text-white"
+            className="michroma my-5 text-center text-7xl lg:text-9xl font-light text-highlight"
           >
             Coming <br /> Soon
           </h1>
@@ -99,7 +99,7 @@ export default function ComingSoon() {
           <Link
             href="/coming-soon/notify"
             data-aos="fade-up"
-            className="mt-4 px-10 py-3 bg-white text-gray-900 rounded-full hover:bg-gray-200 transition font-medium"
+            className="mt-4 px-10 py-3 bg-black text-white rounded-full hover:bg-gray-700 transition font-medium"
           >
             Notify Me
           </Link>
