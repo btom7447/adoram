@@ -27,7 +27,7 @@ export default function ComingSoon() {
   }, []);
 
   return (
-    <section className="pt-20 fixed top-0 left-0 h-screen w-screen z-[5000] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+    <section className="fixed top-0 left-0 h-screen w-screen z-[5000] flex flex-col items-center justify-center text-center text-white overflow-hidden">
       {/* Background Image */}
       <Image
         src="/coming-soon.png"
