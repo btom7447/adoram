@@ -1,82 +1,85 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import { useParams } from "next/navigation";
+import { MoonLoader } from "react-spinners";
+import ProjectHeader from "@/components/ProjectHeader";
 import Image from "next/image";
+import ProjectBrief from "@/components/ProjectBrief";
+import ProjectSolution from "@/components/ProjectSolution";
+import ProjectBrandTalk from "@/components/ProjectBrandTalk";
+import PictureCollage from "@/components/PictureCollage";
+import ProjectSection from "@/sections/ProjectSection";
 
-async function getProject(id) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) return null;
-  return res.json();
-}
+export default function ProjectDetailPage() {
+  const { id } = useParams();
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+ 
+  useEffect(() => {
+      AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
+    }, []);
 
-export default async function ProjectDetailPage({ params }) {
-  const project = await getProject(params.id);
+  useEffect(() => {
+    if (!id) return;
 
-  if (!project) {
+    async function fetchProject() {
+      try {
+        const res = await fetch(`/api/projects/${id}`);
+        if (!res.ok) {
+          console.error("Project not found");
+          setProject(null);
+          return;
+        }
+        const data = await res.json();
+        setProject(data);
+      } catch (err) {
+        console.error("Error fetching project:", err);
+        setProject(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProject();
+  }, [id]);
+
+  if (loading) {
     return (
-      <div className="p-10 text-center text-gray-500">
-        Project not found.
+      <div className="flex justify-center items-center w-full py-50">
+        <MoonLoader color="#4254D0" size={40} />
       </div>
     );
   }
 
+  if (!project) {
+    return (
+      <div className="p-10 text-center text-gray-500">Project not found.</div>
+    );
+  }
+
   return (
-    <section className="max-w-4xl mx-auto p-6 space-y-6">
-      <h1 className="text-3xl font-bold">{project.project_name}</h1>
-      <p className="text-gray-600">{project.industry} • {project.client}</p>
-      <p className="text-gray-500 text-sm">
-        {new Date(project.date).toLocaleDateString()}
-      </p>
+    <section className="relative min-h-screen pt-30 px-5 lg:px-10 py-20">
+      {/* Background */}
+      <Image
+        src="/images/gradient-bg.png"
+        alt="Projects background"
+        fill
+        priority
+        className="object-cover object-center fixed -z-10"
+      />
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-md -z-10" />
 
-      {/* Images */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {project.project_images?.map((img, i) => (
-          <Image
-            key={i}
-            src={img}
-            alt={project.project_name}
-            width={600}
-            height={400}
-            unoptimized
-            className="rounded-lg object-cover w-full h-auto"
-          />
-        ))}
-      </div>
-
-      {/* Descriptions */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Brief Description</h2>
-        <p>{project.brief_description}</p>
-
-        <h2 className="text-xl font-semibold">Solutions & Approach</h2>
-        <p>{project.solutions_approach}</p>
-
-        <h2 className="text-xl font-semibold">Client Talk</h2>
-        <p className="italic">“{project.client_talk}”</p>
-      </div>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mt-4">
-        {project.tags?.map((tag, i) => (
-          <span
-            key={i}
-            className="px-4 py-1 text-sm bg-gray-100 rounded-full"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {/* Website link */}
-      {project.website_link && (
-        <a
-          href={project.website_link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-6 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Visit Website
-        </a>
-      )}
+      <ProjectHeader project={project} />
+      <hr className="my-20 w-full h-0 bg-white border-t-1" />
+      <ProjectBrief project={project} />
+      <hr className="my-20 w-full h-0 bg-white border-t-1" />
+      <ProjectSolution project={project} />
+      <PictureCollage images={project.picture_collage} />
+      <ProjectBrandTalk project={project} />
     </section>
   );
 }

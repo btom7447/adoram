@@ -21,27 +21,11 @@ export default function ContactForm() {
     "$201 and above",
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(formRef.current);
-    const data = Object.fromEntries(formData.entries());
-
-    console.log("✅ Form submitted:", data);
-
-    // Example: Send to backend or API
-    // await fetch("/api/contact", {
-    //   method: "POST",
-    //   body: formData,
-    // });
-
-    formRef.current.reset();
-  };
 
   return (
     <form
-      ref={formRef}
-      onSubmit={handleSubmit}
+      action="https://formspree.io/f/meovqpjb"
+      method="POST"
       className="px-0 lg:px-20 xl:px-30 w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-20"
       data-aos="zoom-in-up"
       data-aos-delay="200"
@@ -113,7 +97,9 @@ export default function ContactForm() {
           required
           className="w-full p-5 bg-white text-lg text-gray-700 border-b border-black  outline-0 transition-all duration-200 cursor-pointer"
         >
-          <option value="" className="text-gray-700">Select...</option>
+          <option value="" className="text-gray-700">
+            Select...
+          </option>
           {budgetOptions.map((option, index) => (
             <option key={index} className="text-black" value={option}>
               {option}

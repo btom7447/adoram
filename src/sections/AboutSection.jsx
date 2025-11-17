@@ -15,7 +15,7 @@ export default function AboutSection() {
             </h5>
 
             {/* Background marquee */}
-            <MarqueeText />
+            <MarqueeText text={"Human Design"} />
 
             <div className="mt-10 lg:-mt-20 relative h-[90dvh] flex items-start lg:items-end justify-end z-20">
                 {/* Background images (absolute layer) */}

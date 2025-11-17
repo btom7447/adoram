@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const ProjectSchema = new mongoose.Schema({
+const ProjectSchema = new mongoose.Schema(
+  {
     project_name: { type: String, required: true },
     brief_description: { type: String, required: true },
     website_link: { type: String },
@@ -8,9 +9,13 @@ const ProjectSchema = new mongoose.Schema({
     industry: { type: String },
     date: { type: Date },
     solutions_approach: { type: String },
+    role: { type: String },
     tags: [{ type: String }],
-    project_images: [{ type: String }], // cloudinary urls
+    project_images: [{ type: String }],
+    picture_collage: [{ type: String }],
     client_talk: { type: String },
-}, { timestamps: true });
+  },
+  { timestamps: true }
+);
 
 export default mongoose.models.Project || mongoose.model("Project", ProjectSchema);

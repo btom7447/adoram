@@ -7,7 +7,7 @@ export default function ContactSection() {
           className="mb-10 w-full text-center text-black text-lg font-medium"
           data-aos="fade-down"
         >
-          Services
+          Contact Us
         </h5>
         <h3
           className="michroma text-3xl lg:text-7xl font-light text-center text-black"
@@ -15,7 +15,12 @@ export default function ContactSection() {
         >
           Get In Touch
         </h3>
-        <button className="w-full max-w-sm  self-end mb-30 py-5 px-10 rounded-full border outline-0 text-black">adoramjohntom1234@gmail.com</button>
+        <a
+          href="mailto:adoramjohntom1234@gmail.com"
+          className="w-full max-w-sm  self-end mb-30 py-5 px-10 rounded-full border outline-0 text-black"
+        >
+          adoramjohntom1234@gmail.com
+        </a>
         <ContactForm />
       </section>
     );

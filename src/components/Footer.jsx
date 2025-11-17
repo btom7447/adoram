@@ -46,7 +46,7 @@ export default function Footer() {
           <h6 className="font-semibold text-xl mb-5 text-gray-600">Socials</h6>
           <nav className="flex flex-col space-y-3 text-white text-lg">
             <a
-              href="https://www.linkedin.com"
+              href="http://linkedin.com/in/adoram-tom7447"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -54,7 +54,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/tom.adoram?igsh=MTFxZzZidTF1dXRjaA%3D%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -62,7 +62,7 @@ export default function Footer() {
               Instagram
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/share/1ATngsCixz/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
