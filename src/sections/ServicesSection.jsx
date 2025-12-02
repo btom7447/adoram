@@ -2,7 +2,7 @@ import CustomButton from "@/components/CustomButton";
 
 const services = [
   {
-    id: 1,
+    id: "01",
     name: "Branding",
     tags: ["identity", "presence", "consistency"],
     text: [
@@ -12,7 +12,7 @@ const services = [
     ],
   },
   {
-    id: 2,
+    id: "02",
     name: "Wire-framing & Prototyping",
     tags: ["structure", "efficiency", "precision"],
     text: [
@@ -22,7 +22,7 @@ const services = [
     ],
   },
   {
-    id: 3,
+    id: "03",
     name: "Website & Web App",
     tags: ["speed", "functionality", "responsiveness"],
     text: [
@@ -32,7 +32,7 @@ const services = [
     ],
   },
   {
-    id: 4,
+    id: "04",
     name: "Mobile App Design",
     tags: ["fluidity", "performance", "engagement"],
     text: [

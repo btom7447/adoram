@@ -15,25 +15,35 @@ export default function CreateProjectPage() {
     client_talk: "",
   });
   const [images, setImages] = useState([]);
-  const [collageImages, setCollageImages] = useState([]);
+const [collageImage, setCollageImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e, type = "project") => {
-    const files = [...e.target.files];
-    if (type === "project") setImages(files);
-    else setCollageImages(files);
-  };
+ const handleFileChange = (e, type = "project") => {
+   const files = [...e.target.files];
+
+   if (type === "project") {
+     setImages(files);
+   } else {
+     if (files.length > 1) {
+       alert("Only ONE image is allowed for Picture Collage.");
+       return;
+     }
+     setCollageImage(files[0]);
+   }
+ };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (collageImages.length < 3 || collageImages.length > 4) {
-      alert("Picture collage must have 3–4 images.");
+    if (!collageImage) {
+      alert("Picture collage must have ONE image.");
       return;
     }
+
 
     setLoading(true);
 
@@ -55,7 +65,7 @@ export default function CreateProjectPage() {
       };
 
       const uploadedProjectImages = await uploadFiles(images);
-      const uploadedCollageImages = await uploadFiles(collageImages);
+const uploadedCollageImages = await uploadFiles([collageImage]);
 
       // 2. Save project to DB
       const res = await fetch("/api/projects", {
@@ -189,7 +199,6 @@ export default function CreateProjectPage() {
         </label>
         <input
           type="file"
-          multiple
           onChange={(e) => handleFileChange(e, "collage")}
           className="w-full"
           accept="image/*"

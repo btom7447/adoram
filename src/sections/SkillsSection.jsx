@@ -53,13 +53,13 @@ export default function SkillsSection() {
                                     repeat: isHovered ? Infinity : 0,
                                     ease: "easeInOut",
                                 }}
-                                className="absolute top-3 right-[50%] w-12 h-12"
+                                className="absolute top-3 right-[50%] w-18 h-18"
                             >
                                 <Image
                                     src={skill.logo}
                                     alt={skill.name}
-                                    width={40}
-                                    height={40}
+                                    width={60}
+                                    height={60}
                                     className={`transition-all duration-300 ${
                                         isHovered
                                         ? "filter-none block"

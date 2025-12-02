@@ -46,7 +46,7 @@ export default function HeroSection() {
               {startTyping && (
                 <ReactTyped
                   strings={[
-                    `A <span class="text-white font-medium">Medical student</span> by day and a <span class="text-white font-medium">UI/UX designer</span> by night I create <span class="text-white font-medium">clean, simple</span> and conversion-focused design Offering <span class="text-white font-medium">budget-friendly prices</span> for quality work`,
+                    `A <span class="text-white font-medium">Medical student</span> by day and a <span class="text-white font-medium">UI/UX designer</span> by night <br /> I create <span class="text-white font-medium">clean, simple</span> and conversion-focused design Offering <span class="text-white font-medium">budget-friendly prices</span> for quality work`,
                   ]}
                   typeSpeed={40}
                   backSpeed={40}

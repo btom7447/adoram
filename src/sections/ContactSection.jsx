@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import { MailIcon } from "lucide-react";
 
 export default function ContactSection() {
     return (
@@ -17,8 +18,9 @@ export default function ContactSection() {
         </h3>
         <a
           href="mailto:adoramjohntom1234@gmail.com"
-          className="w-full max-w-sm  self-end mb-30 py-5 px-10 rounded-full border outline-0 text-black"
+          className="w-full max-w-sm flex items-center gap-2 self-end mb-30 py-5 px-10 rounded-full border outline-0 text-black"
         >
+          <MailIcon size={20} strokeWidth={1} />
           adoramjohntom1234@gmail.com
         </a>
         <ContactForm />

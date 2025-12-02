@@ -68,88 +68,36 @@ export default function ProjectListSection({ projects }) {
                     onMouseEnter={() => setHoveredId(project._id)}
                     onMouseLeave={() => setHoveredId(null)}
                     className={`
-                    relative rounded-2xl p-5 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                    bg-gradient-to-tr from-white/5 to-white/10 border border-white/10 shadow-lg mb-10
-                    group
-                    ${
-                      isHovered
-                        ? "scale-[1.03] border-white/30 bg-white/10 z-10"
-                        : ""
-                    }
-                    ${blurred ? "opacity-40 blur-sm" : "opacity-100"}
-                    md:hover:rotate-[0.5deg] md:hover:-translate-y-2 md:hover:shadow-xl
-                    md:hover:backdrop-blur-0
-                    md:backdrop-blur-md
-                    md:cursor-pointer
-                  `}
-                    style={{
-                      transform: isHovered
-                        ? "perspective(800px) rotateX(2deg) rotateY(2deg)"
-                        : "none",
-                    }}
+        relative w-full h-80 lg:h-[420px] rounded-2xl overflow-hidden mb-10
+        transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+        group
+        ${isHovered ? "scale-[1.02] z-10" : ""}
+        ${blurred ? "opacity-40 blur-sm" : "opacity-100"}
+      `}
                   >
-                    {/* Parallax Image */}
+                    {/* FULL BACKGROUND IMAGE (default state) */}
                     {project.project_images?.[0] && (
-                      <div
-                        className={`relative w-full h-56 rounded-xl overflow-hidden mb-5 transition-transform duration-700 ease-out
-                      `}
-                      >
-                        <Image
-                          src={project.project_images[0]}
-                          alt={project.project_name}
-                          fill
-                          className="object-cover object-center h-full w-full"
-                        />
-                        {/* Reflection overlay */}
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent transition-opacity duration-700
-                          ${isHovered ? "opacity-60" : "opacity-20"}
-                        `}
-                        />
-                      </div>
+                      <Image
+                        src={project.project_images[0]}
+                        alt={project.project_name}
+                        fill
+                        className={`
+            object-cover transition-all duration-700 ease-out
+            ${isHovered ? "scale-100" : "scale-110"}
+          `}
+                      />
                     )}
 
-                    <div className="relative z-10">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-2xl font-semibold text-white mb-5">
-                                {project.project_name}
-                            </h3>
-                            <p className="text-sm text-gray-400">
-                                {new Date(project.date).toLocaleDateString('en-US', { 
-                                year: 'numeric', 
-                                month: 'long', 
-                                day: 'numeric' 
-                                })}
-                            </p>
-                        </div>
-                        {/* Tags */}
-                      {Array.isArray(project.tags) &&
-                        project.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mb-5">
-                            {project.tags.map((tag, index) => (
-                              <span
-                                key={index}
-                                className="px-5 py-1 rounded-full text-xs bg-white/10 border border-white/20 text-gray-200"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                    {/* DARK OVERLAY */}
+                    <div
+                      className={`
+          absolute inset-0 transition-all duration-700
+          ${isHovered ? "bg-black/50" : "bg-black/20"}
+        `}
+                    />
 
-                      {/* Link */}
-                      {project.website_link && (
-                         <Link
-                            href={`/projects/${project._id}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-self-end text-highlight text-lg font-medium"
-                        >
-                          Visit Site
-                          <ArrowUpRight size={20} />
-                        </Link>
-                      )}
-                    </div>
+                    {/* GLASS CONTENT CARD — Hidden until hover */}
+                   
                   </Link>
                 );
               })}
