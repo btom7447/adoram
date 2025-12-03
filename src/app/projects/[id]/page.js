@@ -78,7 +78,7 @@ export default function ProjectDetailPage() {
       <ProjectBrief project={project} />
       <hr className="my-20 w-full h-0 bg-white border-t-1" />
       <ProjectSolution project={project} />
-      <PictureCollage image={project.picture_collage[0]} />
+      <PictureCollage image={project.picture_collage} />
       <ProjectBrandTalk project={project} />
     </section>
   );

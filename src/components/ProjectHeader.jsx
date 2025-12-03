@@ -5,6 +5,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 export default function ProjectHeader({ project }) {
+  console.log("Project data", project)
   return (
     <section
       className="
@@ -27,7 +28,7 @@ export default function ProjectHeader({ project }) {
         data-aos="fade-down"
         data-aos-delay="300"
       >
-        Services
+        {project.industry}
       </h5>
 
       {/* Website Link */}
@@ -67,11 +68,11 @@ export default function ProjectHeader({ project }) {
         <div>
           <h5 className="text-gray-500">Date</h5>
           <h6 className="font-light text-lg">
-            {new Date(project.date).toLocaleDateString("en-US", {
+            {new Date(project.date).toLocaleDateString("en-GB", {
               year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+              month: "2-digit",
+              day: "2-digit",
+            }).replace(/\//g, "-")}
           </h6>
         </div>
       </div>

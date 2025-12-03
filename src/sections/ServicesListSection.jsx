@@ -61,7 +61,7 @@ export default function ServicesListsSection() {
             data-aos-delay="300"
           >
             Collaborating with clients of all sizes to create bold, memorable
-            brands that leave a lasting impression and stay on people's minds
+            brands that <br /> leave a lasting impression and stay on people's minds
           </h5>
         </div>
 

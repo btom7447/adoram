@@ -5,7 +5,7 @@ export default function ProjectSolution({ project }) {
         <p>{project.brief_description}</p>
 
         {Array.isArray(project.tags) && project.tags.length > 0 && (
-          <div className="mt-10 flex flex-wrap gap-5">
+          <div className="mt-10 flex justify-center  flex-wrap gap-5">
             {project.tags.map((tag, index) => (
               <span
                 key={index}
