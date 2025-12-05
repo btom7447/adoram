@@ -3,7 +3,7 @@ import { MailIcon } from "lucide-react";
 
 export default function ContactSection() {
     return (
-      <section className="p-5 lg:p-10 bg-white flex flex-col justify-start ">
+      <section className="p-5 lg:p-10 pt-30 xl:pt-0 bg-white flex flex-col justify-start ">
         <h5
           className="mb-10 w-full text-center text-black text-lg font-medium"
           data-aos="fade-down"
@@ -11,7 +11,7 @@ export default function ContactSection() {
           Contact Us
         </h5>
         <h3
-          className="michroma text-3xl lg:text-7xl font-light text-center text-black"
+          className="michroma mb-5 text-3xl lg:text-7xl font-light text-center text-black"
           data-aos="fade-up"
         >
           Get In Touch
