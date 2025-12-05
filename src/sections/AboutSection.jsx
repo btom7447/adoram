@@ -49,7 +49,7 @@ export default function AboutSection() {
                 </div>
 
                 {/* Foreground content */}
-                <div className="relative z-20 max-w-lg mb-20 flex flex-col items-end justify-end">
+                <div className="relative z-20 max-w-sm text-right mb-20 flex flex-col items-end justify-end">
                     <h5 className="mb-6 text-black text-lg font-medium leading-relaxed" data-aos="fade-left">
                         "Give me an idea, a blank screen, and a reason – and I'll craft
                         something humans will enjoy using."

@@ -56,7 +56,7 @@ export default function ProjectHeader({ project }) {
         />
       </div>
 
-      <div className="flex flex-wrap justify-center items-center gap-10 gap-y-5">
+      <div className="flex flex-col xl:flex-row flex-wrap justify-center xl:items-center gap-10 xl:gap-y-5">
         <div>
           <h5 className="text-gray-500">Client</h5>
           <h6 className="font-light text-lg">{project.client}</h6>
