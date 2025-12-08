@@ -96,7 +96,7 @@ export default function Footer() {
         </span>
       </div>
       <a
-        href="https://kmini-tech.netlify.app"
+        href="https://kmini-tech.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
         className="block mt-5 text-center text-highlight mx-auto text-sm lg:text-lg font-light"

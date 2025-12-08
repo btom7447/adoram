@@ -8,9 +8,9 @@ export default function CreateProjectPage() {
     brief_description: "",
     website_link: "",
     client: "",
+    client_title: "",
     industry: "",
     date: "",
-    solutions_approach: "",
     tags: "",
     client_talk: "",
   });
@@ -73,6 +73,7 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
+          client_title: form.client_title, // Ensure client_title is included
           tags: form.tags.split(",").map((t) => t.trim()),
           project_images: uploadedProjectImages,
           picture_collage: uploadedCollageImages,
@@ -86,14 +87,14 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
           brief_description: "",
           website_link: "",
           client: "",
+          client_title: "",
           industry: "",
           date: "",
-          solutions_approach: "",
           tags: "",
           client_talk: "",
         });
         setImages([]);
-        setCollageImages([]);
+        setCollageImage(null);
       } else {
         alert("❌ Failed to create project");
       }
@@ -120,7 +121,7 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
         />
         <textarea
           name="brief_description"
-          placeholder="Brief Description"
+          placeholder="Brief Description (Vertical bar |) seperates paragraphs"
           value={form.brief_description}
           onChange={handleChange}
           className="w-full p-2 border rounded"
@@ -138,8 +139,16 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
         <input
           type="text"
           name="client"
-          placeholder="Client"
+          placeholder="Client (Name of brand or company)"
           value={form.client}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+        />
+        <input
+          type="text"
+          name="client_title"
+          placeholder="Client Title (Hypen - seperates name from title) "
+          value={form.client_title}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
@@ -157,14 +166,6 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
           value={form.date}
           onChange={handleChange}
           className="w-full p-2 border rounded"
-        />
-        <textarea
-          name="solutions_approach"
-          placeholder="Solutions & Approach"
-          value={form.solutions_approach}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          rows={4}
         />
         <input
           type="text"
@@ -184,7 +185,7 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
         />
 
         <label className="block font-semibold mt-4">
-          Project Images (multiple)
+          Project Thumbnail
         </label>
         <input
           type="file"
@@ -195,7 +196,7 @@ const uploadedCollageImages = await uploadFiles([collageImage]);
         />
 
         <label className="block font-semibold mt-4">
-          Picture Collage (3–4 images)
+          Project Collage
         </label>
         <input
           type="file"

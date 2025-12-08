@@ -61,6 +61,7 @@ export default function ProjectDetailPage() {
     );
   }
 
+console.log("Project data", project)
   return (
     <section className="relative min-h-screen pt-30 px-5 lg:px-10 py-20">
       {/* Background */}

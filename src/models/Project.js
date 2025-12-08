@@ -8,12 +8,12 @@ const ProjectSchema = new mongoose.Schema(
     client: { type: String },
     industry: { type: String },
     date: { type: Date },
-    solutions_approach: { type: String },
     role: { type: String },
     tags: [{ type: String }],
     project_images: [{ type: String }],
     picture_collage: [{ type: String }],
     client_talk: { type: String },
+    client_title: { type: String }
   },
   { timestamps: true }
 );

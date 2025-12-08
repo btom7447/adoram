@@ -34,6 +34,8 @@ export default function TestimonialCarousel() {
     );
   }
 
+  console.log("Testimonial Data", testimonials)
+
   if (!testimonials.length) {
     return (
       <div className="bg-black py-30 flex items-center justify-center">

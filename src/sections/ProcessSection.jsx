@@ -87,7 +87,7 @@ export default function ProcessSection() {
             key={step.id}
             ref={(el) => (cardsRef.current[index] = el)}
             style={{ backgroundColor: step.bgColor }}
-            className={`sticky top-[120px] h-[70dvh] lg:h-[50dvh] rounded-2xl overflow-hidden flex items-start justify-start p-10`}
+            className={`sticky top-[120px] h-[70dvh] lg:h-[60dvh] rounded-2xl overflow-hidden flex items-start justify-start p-10`}
           >
             <div className="text-left text-black">
               <h2 className="michroma text-3xl lg:text-5xl font-bold mb-10">
